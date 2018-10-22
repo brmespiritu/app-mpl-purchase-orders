@@ -11,6 +11,9 @@ class Supplier(models.Model):
     email = models.CharField(max_length=100, null=True, blank=True)
     address = models.CharField(max_length=200, null=True, blank=True)
 
+    def __unicode__(self):
+        return str(self.name)
+
 
 class PurchaseOrder(models.Model):
     supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE)
@@ -19,6 +22,9 @@ class PurchaseOrder(models.Model):
     ordered_by = models.CharField(max_length=100, null=True, blank=True)
     description = models.CharField(max_length=200, null=True, blank=True)
     supplier_ref_no = models.CharField(max_length=20, null=True, blank=True)
+
+    def __unicode__(self):
+        return str(self.purchase_order_no)
 
 
 class PurchaseOrderItem(models.Model):

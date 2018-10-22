@@ -11,10 +11,13 @@ class PurchaseOrderItemInline(admin.TabularInline):
     model = PurchaseOrderItem
 
 class PurchaseOrderAdmin(admin.ModelAdmin):
+    list_display = ('purchase_order_no', 'supplier')
     inlines = [
         PurchaseOrderItemInline,
     ]
 admin.site.register(PurchaseOrder, PurchaseOrderAdmin)
 
 #register supplier
-admin.site.register(Supplier)
+class SupplierAdmin(admin.ModelAdmin):
+    list_display = ('name', 'tel_no', 'fax_no', 'contact_person')
+admin.site.register(Supplier, SupplierAdmin)

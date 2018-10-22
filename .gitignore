@@ -1,0 +1,12 @@
+env/
+env/*
+lib
+lib/*
+app.yaml
+.git
+cloud_sql_proxy
+static
+static/*
+*.pyc
+sample.env
+db.sqlite3

@@ -46,10 +46,22 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware'
 ]
 
 ROOT_URLCONF = 'adminsite.urls'
+
+
+
+APP_MODEL_ORDER = [
+    'Suppliers',
+    'Clients',
+    'Client Purchase Requests',
+    'Supplier Quotations',
+    'MPL Quotations',
+    'Client Purchase Orders',
+    'MPL Purchase Orders'
+]
 
 TEMPLATES = [
     {

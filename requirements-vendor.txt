@@ -1,1 +1,2 @@
 Django<2.0.0,>=1.11.8
+django-enumfields==0.10.1

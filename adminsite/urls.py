@@ -15,13 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-
-
-# Customize admin site header and title
-admin.site.site_title = 'MPL Admin'
-admin.site.site_header = 'MPL Purchase Orders'
+from mpl.admin import mpl_admin_site
 
 urlpatterns = [
-    url(r'', admin.site.urls),
+    url(r'', mpl_admin_site.urls),
+    url(r'^mpl/', mpl_admin_site.urls),
     url(r'^admin/', admin.site.urls)
 ]

@@ -4,8 +4,6 @@ from __future__ import unicode_literals
 
 from django.db import migrations, models
 import django.db.models.deletion
-import enumfields.fields
-import mpl.models
 
 
 class Migration(migrations.Migration):
@@ -37,7 +35,7 @@ class Migration(migrations.Migration):
                 ('order_date', models.DateTimeField(auto_now_add=True, null=True)),
                 ('requested_delivery_date', models.DateTimeField(auto_now_add=True, null=True)),
                 ('actual_delivery_date', models.DateTimeField(auto_now_add=True, null=True)),
-                ('status', enumfields.fields.EnumField(enum=mpl.models.DeliveryStatus, max_length=1)),
+                ('status', models.CharField(max_length=1)),
                 ('notes', models.CharField(blank=True, max_length=200, null=True)),
                 ('net_total', models.DecimalField(decimal_places=2, default=0, max_digits=9)),
                 ('client', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='mpl.Client')),
@@ -91,7 +89,7 @@ class Migration(migrations.Migration):
                 ('order_date', models.DateTimeField(auto_now_add=True, null=True)),
                 ('requested_delivery_date', models.DateTimeField(auto_now_add=True, null=True)),
                 ('actual_delivery_date', models.DateTimeField(auto_now_add=True, null=True)),
-                ('status', enumfields.fields.EnumField(enum=mpl.models.DeliveryStatus, max_length=1)),
+                ('status', models.CharField(max_length=1)),
                 ('notes', models.CharField(blank=True, max_length=200, null=True)),
                 ('net_total', models.DecimalField(decimal_places=2, default=0, max_digits=9)),
                 ('supplier', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='mpl.Supplier')),
@@ -119,7 +117,7 @@ class Migration(migrations.Migration):
                 ('quotation_no', models.CharField(blank=True, max_length=20, null=True)),
                 ('quotation_date', models.DateTimeField(auto_now_add=True, null=True)),
                 ('description', models.CharField(blank=True, max_length=200, null=True)),
-                ('status', enumfields.fields.EnumField(enum=mpl.models.MPLQuotationStatus, max_length=1)),
+                ('status', models.CharField(max_length=1)),
                 ('net_total', models.DecimalField(decimal_places=2, default=0, max_digits=9)),
                 ('client', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='mpl.Client')),
                 ('client_purchase_request', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='mpl.ClientPurchaseRequest')),
@@ -146,7 +144,7 @@ class Migration(migrations.Migration):
                 ('quotation_no', models.CharField(blank=True, max_length=20, null=True)),
                 ('quotation_date', models.DateTimeField(auto_now_add=True, null=True)),
                 ('description', models.CharField(blank=True, max_length=200, null=True)),
-                ('status', enumfields.fields.EnumField(enum=mpl.models.SupplierQuotationStatus, max_length=1)),
+                ('status', models.CharField(max_length=1)),
                 ('net_total', models.DecimalField(decimal_places=2, default=0, max_digits=9)),
                 ('supplier', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='mpl.Supplier')),
             ],

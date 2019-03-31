@@ -59,6 +59,9 @@ class Supplier(models.Model):
     def __unicode__(self):
         return str(self.name)
 
+    class Meta:
+        ordering = ('name',)
+
 
 class ClientPurchaseRequest(models.Model):
     class Meta:
@@ -181,6 +184,7 @@ class MPLPurchaseOrder(models.Model):
     class Meta:
         verbose_name = ("MPL Purchase Order")
         verbose_name_plural = ("MPL Purchase Orders")
+        ordering = ('supplier__name',)
     supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE)
     purchase_order_no = models.CharField(max_length=20, null=True, blank=True)
     client_purchase_order = models.ForeignKey(ClientPurchaseOrder, null=True, blank=True, on_delete=models.SET_NULL)
